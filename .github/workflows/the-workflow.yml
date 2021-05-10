@@ -1,0 +1,12 @@
+name: The Workflow
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  the-job:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Say hi
+      run: echo "Hello, world."
