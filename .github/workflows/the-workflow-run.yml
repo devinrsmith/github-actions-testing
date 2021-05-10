@@ -1,0 +1,16 @@
+name: The Workflow Run
+
+on:
+  workflow_run:
+    workflows: ["The Workflow"]
+    types:
+      - completed
+
+jobs:
+  print-workflow-run-info:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Print workflow_run
+      env:
+        WORKFLOW_RUN_INFO: ${{ toJson(github.event.workflow_run) }}
+      run: echo "${WORKFLOW_RUN_INFO}"
